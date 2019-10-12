@@ -14,7 +14,7 @@ import java.util.Set;
 
 @Component
 @Slf4j
-public class DelayTask implements Runnable {
+public class RedisDelayTask implements Runnable {
     private final Thread thread = new Thread(this);
     private volatile boolean runCondition = true;
     public static final String DELAY_TASK_KEY = "delay_task_key";

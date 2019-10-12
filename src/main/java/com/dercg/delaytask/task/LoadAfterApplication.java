@@ -16,17 +16,17 @@ import javax.annotation.PreDestroy;
 public class LoadAfterApplication implements CommandLineRunner {
     private static Logger logger = LoggerFactory.getLogger(LoadAfterApplication.class);
     @Autowired
-    DelayTask delayTask;
+    RedisDelayTask redisDelayTask;
 
     @Override
     public void run(String... args) throws Exception {
-        delayTask.start();
+        redisDelayTask.start();
     }
 
     @PreDestroy
     public void destroyReceiver() {
         try {
-            delayTask.stop();
+            redisDelayTask.stop();
         } catch (Exception e) {
             logger.error(Throwables.getStackTraceAsString(e));
         }

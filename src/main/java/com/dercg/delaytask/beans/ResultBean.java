@@ -24,5 +24,4 @@ public class ResultBean<T> {
         this.isSuccess = isSuccess;
         this.message = message;
     }
-
 }
